@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
@@ -67,7 +69,7 @@
                                     </tr>
                                     </thead>
                                     <tbody id="table">
-                                        <!--заполняется с помощью js-->
+                                    <!--заполняется с помощью js-->
                                     </tbody>
                                 </table>
                             </div>
@@ -93,39 +95,39 @@
                     </div>
 
                     <div class="modal-body">
-                        <div class="row bg-white" >
+                        <div class="row bg-white">
                             <div class="col-6 mx-auto text-center font-weight-bold">
                                 ID
                                 <input type="number" name="id" id="idInput" readonly class="form-control"></div>
                         </div>
-                        <div class="row bg-white" >
+                        <div class="row bg-white">
                             <div class="col-6 mx-auto text-center font-weight-bold my-2">
                                 Username
                                 <input type="text" name="name" id="nameInput" class="form-control"></div>
                         </div>
 
-                        <div class="row bg-white" >
+                        <div class="row bg-white">
                             <div class="col-6 mx-auto text-center font-weight-bold my-2">
                                 Age
                                 <input type="number" name="age" id="ageInput" class="form-control"></div>
                         </div>
 
-                        <div class="row bg-white" >
+                        <div class="row bg-white">
                             <div class="col-6 mx-auto text-center font-weight-bold">
                                 Email
                                 <input type="email" name="email" id="emailInput" class="form-control"></div>
                         </div>
 
-                        <div class="row bg-white" >
+                        <div class="row bg-white">
                             <div class="col-6 mx-auto text-center font-weight-bold my-2">
                                 Password
-                                <input type="password"  name="password" id="passwordInput" class="form-control"></div>
+                                <input type="password" name="password" id="passwordInput" class="form-control"></div>
                         </div>
 
-                        <div class="row bg-white" >
+                        <div class="row bg-white">
                             <div class="col-6 mx-auto text-center font-weight-bold">
                                 Role
-                                <select class="custom-select form-control" multiple name="role" id="roleInput" size="2" >
+                                <select class="custom-select form-control" multiple name="role" id="roleInput" size="2">
                                     <option>ADMIN</option>
                                     &nbsp
                                     <option>USER</option>
@@ -157,28 +159,28 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="row bg-white " >
+                        <div class="row bg-white ">
                             <div class="col-6 mx-auto text-center font-weight-bold">
                                 ID
-                                <input type="number" name="id" id="idDelete" readonly class="form-control" ></div>
+                                <input type="number" name="id" id="idDelete" readonly class="form-control"></div>
                         </div>
-                        <div class="row  bg-white " >
+                        <div class="row  bg-white ">
                             <div class="col-6 mx-auto text-center font-weight-bold my-2">
                                 First name
                                 <input type="text" name="name" id="nameDelete" readonly class="form-control"></div>
                         </div>
 
-                        <div class="row bg-white " >
+                        <div class="row bg-white ">
                             <div class="col-6 mx-auto text-center font-weight-bold my-2">
                                 Age
-                                <input type="number" name="age" id="ageDelete" readonly class="form-control" ></div>
+                                <input type="number" name="age" id="ageDelete" readonly class="form-control"></div>
                         </div>
-                        <div class="row bg-white " >
+                        <div class="row bg-white ">
                             <div class="col-6 mx-auto text-center font-weight-bold">
                                 Email
                                 <input type="email" name="email" id="emailDelete" readonly class="form-control"></div>
                         </div>
-                        <div class="row bg-white " >
+                        <div class="row bg-white ">
                             <div class="col-6 mx-auto text-center font-weight-bold">
                                 Role
                                 <input type="text" name="role" id="roleDelete" readonly class="form-control"></div>
@@ -187,7 +189,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit"  data-dismiss="modal"  class="btn btn-danger deleteBtn">Delete</button>
+                        <button type="submit" data-dismiss="modal" class="btn btn-danger deleteBtn">Delete</button>
                     </div>
 
                 </div>
@@ -211,6 +213,7 @@
     }
     //обновить table
     $(document).ready(refreshTable());
+
     function refreshTable() {
         $("#table").empty();
         $.ajax({
@@ -256,19 +259,36 @@
         const name = father.children[1].innerHTML;
         const age = father.children[2].innerHTML;
         const email = father.children[3].innerHTML;
+        const role = father.children[4].innerHTML;
+
         $('#idInput').val(id);
         $('#nameInput').val(name);
         $('#ageInput').val(age);
         $('#emailInput').val(email);
+        $('#roleInput').val(role);
         $('#editModal').modal();
-    })
+    });
 
     on(document, 'click', '.editBtn', (e) => {
-        let formData = $(".formEditUser").serializeArray();
+        const id = $('#idInput').val();
+        const name = $('#nameInput').val();
+        const age = $('#ageInput').val();
+        const email = $('#emailInput').val();
+        const role = $('#roleInput').val();
+
+        const updatedUser = {
+            name: name,
+            password: $('#passwordEdit').val(),
+            email: email,
+            age: age,
+            roles: role
+        };
+
         $.ajax({
-            url: 'rest/admin/edit?id='+$('#idInput').val(),
+            url: `rest/admin/edit/${id}`,
             method: 'PUT',
-            data: formData,
+            contentType: 'application/json',
+            data: JSON.stringify(updatedUser),
             success: function () {
                 refreshTable();
             },
@@ -276,7 +296,7 @@
                 prompt("type: " + type + "\nexception: " + exception);
             },
         });
-    })
+    });
 
     //при удалении
     on(document, 'click', '.deleteUser', (e) => {
@@ -297,7 +317,7 @@
 
     on(document, 'click', '.deleteBtn', (e) => {
         $.ajax({
-            url: 'rest/admin/delete?id='+$('#idDelete').val(),
+            url: `rest/admin/${$('#idDelete').val()}`,
             method: 'DELETE',
             success: function () {
                 refreshTable();

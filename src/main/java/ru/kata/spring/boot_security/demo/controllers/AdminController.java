@@ -23,14 +23,11 @@ import java.util.Collections;
 @RequestMapping("/admin")
 public class AdminController {
     private final UserService userService;
-    private final UserValidate userValidate;
-    private final RegistrationService registrationService;
+
 
     @Autowired
-    public AdminController(UserService userService, UserValidate userValidate, RegistrationService registrationService) {
+    public AdminController(UserService userService) {
         this.userService = userService;
-        this.userValidate = userValidate;
-        this.registrationService = registrationService;
     }
 
     @GetMapping()
@@ -46,17 +43,5 @@ public class AdminController {
         model.addAttribute("user", new User());
         model.addAttribute("thisUser", userService.findByName(SecurityContextHolder.getContext().getAuthentication().getName()).get());
         return "admin/new";
-    }
-
-    @PostMapping()
-    public String create(@ModelAttribute("user") @Valid User user,
-                         BindingResult bindingResult) {
-        userValidate.validate(user, bindingResult);
-
-        if (bindingResult.hasErrors())
-            return "admin/new";
-
-        registrationService.register(user);
-        return "redirect:admin";
     }
 }
